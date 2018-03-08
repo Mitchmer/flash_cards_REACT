@@ -9,28 +9,29 @@ class CardForm extends React.Component {
   
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addCard(this.state.front);
-    this.props.addCard(this.state.back);
+    let x = { front: this.state.front, back: this.state.back }  ;
+    this.props.addCard(x)
+    debugger
     this.setState({ front: '', back: '' })
   }
   
   render () {
-    const  { front, back } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <input 
           required 
           name="front"
           onChange={this.handleChange}
-          value={front}
+          value={this.state.front}
           placeholder="Front Text" 
         />
         <input 
           required 
           name="back"
           onChange={this.handleChange}
-          value={back}
+          value={this.state.back}
           placeholder="Back Text" />
+        <button>Submit</button>
       </form>
     )
   }

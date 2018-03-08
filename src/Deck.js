@@ -6,10 +6,9 @@ const Deck = ({ cards, front, back }) => (
     <div>
       { cards.map( card => 
         <div key={card.front}>
-          <h1 key={card.front}>
-            {card.front}
-          </h1>
-        </div>) 
+          <Card key={card.front} {...card} />
+        </div>
+        )
       }
     </div>
   </div>
